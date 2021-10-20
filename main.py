@@ -51,22 +51,20 @@ def is_prime(x):
         if x % i == 0:
             return False
     return True
-
 def oglindit(n):
     m = n
     inv = 1
     while m:
         u = m % 10
         inv = inv * 10 + u
-        m = m / 10
+        m = m // 10
     return inv
-
 def superprim(y):
     x = oglindit(y)
     while x != 0:
         if is_prime(x) == 0:
             return False
-        x = x / 10
+        x = x // 10
     return True
 def afis_superprim(l):
     rez = []
@@ -74,10 +72,8 @@ def afis_superprim(l):
         if superprim(x) == 1:
             rez.append(x)
     return rez
-
 def test_afis_superprim():
     assert (afis_superprim([173, 239]) == 239) is True
-
 def cmmdc(l):
     cmmdc1 = l[1]
     for i in range(len(l)):
@@ -88,7 +84,6 @@ def cmmdc(l):
             else:
                 if x < cmmdc1:
                     cmmdc1 = cmmdc1 - x
-
     return cmmdc1
 def afis_cmmdc(l):
     x = cmmdc(l)
