@@ -43,7 +43,7 @@ def ultima_cif_egal_nr(l, x):
 def test_ultima_cif_egal_nr():
     assert ultima_cif_egal_nr([1, 6, 34, 68, 40, 48, 20], 8) == 48
 
-"""
+
 def is_prime(x):
     if x < 2:
         return False
@@ -51,14 +51,13 @@ def is_prime(x):
         if x % i == 0:
             return False
     return True
-def oglindit(n):
-    m = n
-    inv = 1
-    while m:
-        u = m % 10
-        inv = inv * 10 + u
-        m = m // 10
-    return inv
+def oglindit(number):
+    revs_number = 0
+    while (number > 0):
+        remainder = number % 10
+        revs_number = (revs_number * 10) + remainder
+        number = number // 10
+    return revs_number
 def superprim(y):
     x = oglindit(y)
     while x != 0:
@@ -68,12 +67,13 @@ def superprim(y):
     return True
 def afis_superprim(l):
     rez = []
-    for x in l:
-        if superprim(x) == 1:
-            rez.append(x)
+    for x in range(len(l)):
+        if superprim(l[x]) == 1:
+            rez.append(l[x])
     return rez
 def test_afis_superprim():
-    assert (afis_superprim([173, 239]) == 239) is True
+    assert afis_superprim([173, 66]) == []
+"""
 def cmmdc(l):
     cmmdc1 = l[1]
     for i in range(len(l)):
@@ -99,7 +99,7 @@ def test_afis_cmmdc():
 def main():
     test_afis_nr_negative()
     test_ultima_cif_egal_nr()
-    #test_afis_superprim()
+    test_afis_superprim()
     #test_afis_cmmdc()
 
     l = []
